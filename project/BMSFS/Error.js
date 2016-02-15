@@ -1,43 +1,51 @@
-
 "use strict";
-var NO_ERROR = 0,
-    ASSEMBLE_TIME_ERROR = 1,
-    RUN_TIME_ERROR = 2,
-    RUN_TIME_WARNING = 3;
-class Error {
-            
-    constructor(msg, type) {
 
-        if(typeof(msg) === 'undefined') msg = '';
-        if(typeof(type) === 'undefined') type = NO_ERROR;
-        
-        this.errorMsg = msg;
-        this.errorType = type;
-        
+
+function Error(msg, type) {
+    /* Error status codes
+     * @param msg: Error message
+     * @param type: Error type
+     */
+
+    var NO_ERROR = 0,
+        ASSEMBLE_TIME_ERROR = 1,
+        RUN_TIME_ERROR = 2,
+        RUN_TIME_WARNING = 3;
+
+    // Handle default arguments
+    if(typeof(msg) === 'undefined') msg = '';
+    if(typeof(type) === 'undefined') type = NO_ERROR;
+
+    // Private variables
+    var errorMsg=msg, errorType=type;
+
+    this.isOk = function() {
+        /* Check for no errors */
+        return (errorType == NO_ERROR || errorType == RUN_TIME_WARNING);
     }
 
-    isOk() {
-        return (this.errorType == NO_ERROR || this.errorType == RUN_TIME_WARNING);
+    this.isWarning = function() {
+        /* Check for warnings */
+        return (errorType == RUN_TIME_WARNING);
     }
 
-    isWarning() {
-        return (this.errorType == RUN_TIME_WARNING);
+    this.printErrorMsg = function() {
+        /* Print error message on console */
+        console.log(errorMsg);
     }
 
-    printErrorMsg() {
-        console.log(this.errorMsg);
+    this.getErrorMsg = function() {
+        /* Return the error message */
+        return errorMsg;
     }
 
-    getErrorMsg() {
-        return this.errorMsg;
+    this.getErrorType = function() {
+        /* Return error type */
+        return errorType;
     }
 
-    getErrorType() {
-        return this.errorType ;
-    }
-
-    getErrorTypeString() {
-        var errorType = this.errorType;
+    this.getErrorTypeString = function() {
+        /* Return the error type as string */
         if (errorType == NO_ERROR) {
             return "NO_ERROR";
         } else if(errorType == ASSEMBLE_TIME_ERROR) {

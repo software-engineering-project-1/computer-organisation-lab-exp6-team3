@@ -1,16 +1,13 @@
+<script>
 "use strict";
 
 function Register() {
 
-    var Reg = [];
-
     this.initializeSP = function() {
-        /* Initialize stack pointer */
         this.updateRegister("$sp", 0x10100000);
     }
 
     this.updateRegister = function(regNo , value) {
-        /* Update register regNo with the value */
         if(typeof(regNo) == "string") {
             regNo = this.getRegisterNumberFromString(regNo);
         }
@@ -24,7 +21,6 @@ function Register() {
     }
 
     this.getRegValue = function(regNo) {
-        /* Return value of register */
         if(typeof(regNo) == "string") {
             regNo = this.getRegisterNumberFromString(regNo);
         }
@@ -36,29 +32,24 @@ function Register() {
     }
 
     this.setRegValue = function(regNo, value) {
-        /* Set a register value */
         if(regNo >= 0 && regNo < Reg.length){
             Reg[regNo] = value;
         }
     }
 
     this.getPC = function() {
-        /* Get Value of PC */
         return Reg[34];
     }
 
     this.updatePcRelative = function(relativeShift) {
-        /* Update PC relatively */
         Reg[34] += relativeShift;
     }
 
     this.updatePcAbsolute = function(newPCAddress) {
-        /* Update PC value with absolute address */
         Reg[34] = newPCAddress;
     }
 
     this.initializePC = function(startAddr) {
-        /* Initialize PC with startAddr */
         if(startAddr === undefined) {
         this.updatePcAbsolute(0x4000000);
         } else {
@@ -67,32 +58,26 @@ function Register() {
     }
 
     this.incrementPCToNextInstruction = function() {
-        /* Increment PC */
         this.updatePcRelative(4);
     }
 
     this.getHI = function() {
-        /* Get the HI value */
         return Reg[32];
     }
 
     this.updateHI = function(newValue) {
-        /* Update HI value */
         Reg[32] = newValue;
     }
 
     this.getLO = function() {
-        /* Get LO value */
         return Reg[33];
     }
 
     this.updateLO = function(newValue) {
-        /* Update LO value */
         Reg[33] = newValue;
     }
 
     this.getRegisterNumberFromString = function(str) {
-        /* Get register number from string */
         str = str.toLowerCase();
         if(str == "$0" || str == "$zero") {
             return 0;
@@ -165,11 +150,14 @@ function Register() {
         }
         return -1; // error
     }
+	var Reg = [];
     var Number_of_reg = 32;
     for(var i = 0; i < Number_of_reg; i++) {
-        Reg.push(0);
+      Reg.push(0);
     }
     this.initializePC();
     this.initializeSP();
 
+    
 }
+</script>

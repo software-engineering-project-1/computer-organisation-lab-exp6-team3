@@ -1,0 +1,4 @@
+Operator/Method Overloading in JS
+Making a module
+Use of classes - we are currently using the 2016 convention (compatibility issues with mozzila) (should work on chrome)
+Private variables in the classes and namespace availability.
