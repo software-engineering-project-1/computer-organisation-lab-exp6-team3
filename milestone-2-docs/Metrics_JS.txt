@@ -1,0 +1,51 @@
+Memory.js -
+	13 functions
+	functions per class - 12
+	function with largest signature - 3 params
+	Median number of params - 1
+	Largest function - 22 statements , median is 8.
+	Most complex cyclomatic complexity - 7 
+	Median cyclomatic complexity - 3
+	LOC - 
+	Comments / LOC ratio -
+
+MyLibrary.js - 
+	5 functions
+	functions per class - 12
+	function with the largest signature - 1 param
+ 	Median number of params - 1
+	Largest function - 6 statements , median is 4.
+	Most complex cyclomatic complexity - 4 
+	Median cyclomatic complexity - 1
+	LOC -
+	Comments / LOC ratio -
+
+Register.js -
+	15 functions
+	functions per class - 14 
+	function with largest signature - 2 
+	Median number of params - 1
+	Largest function - 37 statements , median is 1.
+	Most complex cyclomatic complexity - 67
+	Median cyclomatic complexity - 1
+	LOC - 
+	Comments / LOC ratio - 
+	
+
+Error.js -
+	7 functions
+	functions per class - 6
+	function with largest signature - 2
+	Median number of params - 0
+	Largest function - 10 statements , median is 1.
+	Most complex cyclomatic complexity - 5
+	Median cyclomatic complexity - 1
+	LOC - 
+	Comments / LOC ratio - 
+
+MIPSProgram.js
+
+	There are 26 functions in this file.
+Function with the largest signature take 2 arguments, while the median is 0.5.
+Largest function has 33 statements in it, while the median is 8.
+The most complex function has a cyclomatic complexity value of 12 while the median is 3.
